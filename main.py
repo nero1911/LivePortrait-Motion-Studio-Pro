@@ -188,7 +188,7 @@ class LivePortraitStudio:
         """Create Gradio UI"""
         logger.info("Creating UI...")
         
-        with gr.Blocks(title="LivePortrait Motion Studio Pro", theme=gr.themes.Soft()) as demo:
+        with gr.Blocks(title="LivePortrait Motion Studio Pro") as demo:
             gr.Markdown("# 🎬 LivePortrait Motion Studio Pro")
             gr.Markdown("*Real-time Interactive Animation Editor*")
             
@@ -219,95 +219,95 @@ class LivePortraitStudio:
                     gr.Markdown("### 🎨 Animation Controls")
                     
                     # Facial Animation Controls
-                    with gr.Group(label="Face Animation"):
-                        blink_intensity = gr.Slider(
-                            label="👀 Eye Blink Intensity",
-                            minimum=0, maximum=100, value=50, step=5
-                        )
-                        blink_frequency = gr.Slider(
-                            label="👁️ Eye Blink Frequency",
-                            minimum=0.1, maximum=5, value=1, step=0.1
-                        )
-                        
-                        smile_strength = gr.Slider(
-                            label="😊 Smile Strength",
-                            minimum=0, maximum=100, value=30, step=5
-                        )
-                        expression_intensity = gr.Slider(
-                            label="😐 Expression Intensity",
-                            minimum=0, maximum=100, value=50, step=5
-                        )
+                    gr.Markdown("#### 👤 Face Animation")
+                    blink_intensity = gr.Slider(
+                        label="👀 Eye Blink Intensity",
+                        minimum=0, maximum=100, value=50, step=5
+                    )
+                    blink_frequency = gr.Slider(
+                        label="👁️ Eye Blink Frequency",
+                        minimum=0.1, maximum=5, value=1, step=0.1
+                    )
+                    
+                    smile_strength = gr.Slider(
+                        label="😊 Smile Strength",
+                        minimum=0, maximum=100, value=30, step=5
+                    )
+                    expression_intensity = gr.Slider(
+                        label="😐 Expression Intensity",
+                        minimum=0, maximum=100, value=50, step=5
+                    )
                     
                     # Head Movement Controls
-                    with gr.Group(label="Head Movement"):
-                        head_yaw = gr.Slider(
-                            label="↔️ Head Yaw (Left/Right)",
-                            minimum=-30, maximum=30, value=0, step=2
-                        )
-                        head_pitch = gr.Slider(
-                            label="↕️ Head Pitch (Up/Down)",
-                            minimum=-30, maximum=30, value=0, step=2
-                        )
-                        head_roll = gr.Slider(
-                            label="⤴️ Head Roll (Tilt)",
-                            minimum=-20, maximum=20, value=0, step=2
-                        )
-                        head_nod_intensity = gr.Slider(
-                            label="🤨 Head Nod Intensity",
-                            minimum=0, maximum=100, value=30, step=5
-                        )
+                    gr.Markdown("#### 🤨 Head Movement")
+                    head_yaw = gr.Slider(
+                        label="↔️ Head Yaw (Left/Right)",
+                        minimum=-30, maximum=30, value=0, step=2
+                    )
+                    head_pitch = gr.Slider(
+                        label="↕️ Head Pitch (Up/Down)",
+                        minimum=-30, maximum=30, value=0, step=2
+                    )
+                    head_roll = gr.Slider(
+                        label="⤴️ Head Roll (Tilt)",
+                        minimum=-20, maximum=20, value=0, step=2
+                    )
+                    head_nod_intensity = gr.Slider(
+                        label="🤔 Head Nod Intensity",
+                        minimum=0, maximum=100, value=30, step=5
+                    )
                     
                     # Hair and Breath Controls
-                    with gr.Group(label="Physics Simulation"):
-                        hair_flutter = gr.Slider(
-                            label="💇 Hair Flutter Amount",
-                            minimum=0, maximum=100, value=20, step=5
-                        )
-                        hair_direction = gr.Slider(
-                            label="💨 Hair Wind Direction",
-                            minimum=-180, maximum=180, value=0, step=15
-                        )
-                        breathing_intensity = gr.Slider(
-                            label="🌬️ Breathing Intensity",
-                            minimum=0, maximum=100, value=30, step=5
-                        )
-                        breathing_frequency = gr.Slider(
-                            label="💓 Breathing Frequency",
-                            minimum=0.1, maximum=2, value=0.5, step=0.1
-                        )
+                    gr.Markdown("#### 💨 Physics Simulation")
+                    hair_flutter = gr.Slider(
+                        label="💇 Hair Flutter Amount",
+                        minimum=0, maximum=100, value=20, step=5
+                    )
+                    hair_direction = gr.Slider(
+                        label="🌬️ Hair Wind Direction",
+                        minimum=-180, maximum=180, value=0, step=15
+                    )
+                    breathing_intensity = gr.Slider(
+                        label="💓 Breathing Intensity",
+                        minimum=0, maximum=100, value=30, step=5
+                    )
+                    breathing_frequency = gr.Slider(
+                        label="❤️ Breathing Frequency",
+                        minimum=0.1, maximum=2, value=0.5, step=0.1
+                    )
                     
                     # Advanced Controls
-                    with gr.Group(label="Eye Gaze"):
-                        eye_gaze_x = gr.Slider(
-                            label="👁️ Eye Gaze X",
-                            minimum=-30, maximum=30, value=0, step=5
-                        )
-                        eye_gaze_y = gr.Slider(
-                            label="👁️ Eye Gaze Y",
-                            minimum=-30, maximum=30, value=0, step=5
-                        )
+                    gr.Markdown("#### 👁️ Eye Gaze")
+                    eye_gaze_x = gr.Slider(
+                        label="👁️ Eye Gaze X (Left/Right)",
+                        minimum=-30, maximum=30, value=0, step=5
+                    )
+                    eye_gaze_y = gr.Slider(
+                        label="👁️ Eye Gaze Y (Up/Down)",
+                        minimum=-30, maximum=30, value=0, step=5
+                    )
                     
                     # Output Settings
                     gr.Markdown("### ⚙️ Output Settings")
-                    with gr.Group(label="Video Settings"):
-                        output_format = gr.Radio(
-                            label="Output Format",
-                            choices=["MP4", "GIF"],
-                            value="MP4"
-                        )
-                        fps = gr.Slider(
-                            label="FPS",
-                            minimum=15, maximum=60, value=30, step=5
-                        )
-                        duration = gr.Slider(
-                            label="Duration (seconds)",
-                            minimum=1, maximum=10, value=3, step=0.5
-                        )
-                        resolution = gr.Radio(
-                            label="Resolution",
-                            choices=["480P", "720P", "1080P"],
-                            value="480P"
-                        )
+                    gr.Markdown("**Video Format**")
+                    output_format = gr.Radio(
+                        label="Format",
+                        choices=["MP4", "GIF"],
+                        value="MP4"
+                    )
+                    fps = gr.Slider(
+                        label="FPS",
+                        minimum=15, maximum=60, value=30, step=5
+                    )
+                    duration = gr.Slider(
+                        label="Duration (seconds)",
+                        minimum=1, maximum=10, value=3, step=0.5
+                    )
+                    resolution = gr.Radio(
+                        label="Resolution",
+                        choices=["480P", "720P", "1080P"],
+                        value="480P"
+                    )
                     
                     render_button = gr.Button("🎬 Render & Save", variant="primary", size="lg")
                 
